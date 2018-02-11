@@ -4,10 +4,10 @@ import { StyleSheet, Alert, View } from 'react-native';
 export default class AlertNoNet extends React.Component {
     render() {
         const showAlert = Alert.alert(
-            'Somthing Error...',
-            "You don't have NetWork",
+            'No net work detected',
+            "You don't have NetWork. Please check it.",
             [
-                { text: 'Try again ...', onPress: () =>  console.warn("ok") },
+                { text: 'Try', onPress: () =>  console.log("ok") },
             ],
             { cancelable: false }
         )

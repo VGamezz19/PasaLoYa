@@ -9,6 +9,7 @@ export default class SeaFlex extends React.Component {
     countLoader: 0
   }
   componentDidMount() {
+
     this.runAnimation();
   }
 
@@ -45,8 +46,8 @@ export default class SeaFlex extends React.Component {
         }
       )
     ]).start(() => {
-        
-      if (this.props.data <1) return this.runAnimation()
+      if (this.props.data.length < 1) return this.runAnimation()
+
       return this.finishAnimation()
     })
   }
@@ -87,7 +88,7 @@ export default class SeaFlex extends React.Component {
       <View style={[styles.containerLoader]}>
 
         <Animated.View style={{ justifyContent: 'flex-start', backgroundColor: 'powderblue', flex: seaFlex1, opacity: seaFlex1 }}>
-            {this.props.children}
+          {this.props.children}
         </Animated.View>
         <Animated.View style={{ backgroundColor: 'skyblue', flex: seaFlex2, opacity: seaFlex2 }} />
         <Animated.View style={{ backgroundColor: 'steelblue', flex: seaFlex3, opacity: seaFlex3 }} />

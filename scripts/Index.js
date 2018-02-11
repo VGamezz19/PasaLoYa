@@ -6,7 +6,7 @@ export default class Index extends React.Component {
     state = {
         finishLoader: false,
         data: [],
-        login: null,
+        login: true,
         netWork: true,
     }
 
@@ -18,17 +18,20 @@ export default class Index extends React.Component {
     //Simulated a Petition Fetch
     testPetitionFetch = () => {
         setTimeout(() => {
+            console.warn("Execute SetTimeout")
 
-            if (this.state.login) {
                 this.setDataFetch(["Hola", "Data"])
-            }
 
-        }, 2000);
+        }, 10000);
     }
 
     //=======================
     //Metodos REACT.Component
+    componentWillMount() {
+        this.testPetitionFetch()
+    }
     componentDidMount() {
+
         handleFirstConnectivityChange = (isConnected) => {
             NetInfo.getConnectionInfo().then((connectionInfo) => {
                 console.log('Initial, type: ' + connectionInfo.type + ', effectiveType: ' + connectionInfo.effectiveType);
@@ -42,7 +45,6 @@ export default class Index extends React.Component {
     }
 
     render() {
-
         if (this.state.finishLoader) {
             return (<View
                 style={[styles.containerHello]}>

@@ -4,22 +4,15 @@ import AlertNoNet from './AlertNoNet'
 import SeaFlex from './Loader/SeaFlex'
 
 export default class InitAppLoad extends React.Component {
-  state = {
-    netWorkStatus : true
-  }
   onEndLoader = () => this.props.onEndLoader
-
-  
-  componentWillReceiveProps(nextProps) {
-    this.setState({netWorkStatus: nextProps.netWork})
-  }
   
   render() {
-    console.warn("Props.NetWork -->",this.state)
-    if (!this.state.netWorkStatus) {
+    if (!this.props.netWork) {
       return <AlertNoNet />
     } else {
+      
       return (
+        
         <SeaFlex data={this.props.data} onEndLoader={this.props.onEndLoader}>
           <Text style={[styles.elementHeaderLoaderText]}>PasaLoYa!</Text>
         </SeaFlex>
