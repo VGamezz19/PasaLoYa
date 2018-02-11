@@ -1,25 +1,35 @@
 import React from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import AlertNoNet from './AlertNoNet'
 import SeaFlex from './Loader/SeaFlex'
 
-export default class InitialAppLoad extends React.Component {
-  
+export default class InitAppLoad extends React.Component {
+  state = {
+    netWorkStatus : true
+  }
   onEndLoader = () => this.props.onEndLoader
 
-  componentDidMount() {
-    this.props.onFetching()
+  
+  componentWillReceiveProps(nextProps) {
+    this.setState({netWorkStatus: nextProps.netWork})
   }
   
   render() {
-    return (
-      
-      <SeaFlex valueData = {this.props.valueData} onEndLoader={this.props.onEndLoader}>
-        <Text style={[styles.elementHeaderLoaderText]}>PasaLoYa!</Text>
-      </SeaFlex>
-    )
+    console.warn("Props.NetWork -->",this.state)
+    if (!this.state.netWorkStatus) {
+      return <AlertNoNet />
+    } else {
+      return (
+        <SeaFlex data={this.props.data} onEndLoader={this.props.onEndLoader}>
+          <Text style={[styles.elementHeaderLoaderText]}>PasaLoYa!</Text>
+        </SeaFlex>
+      )
+    }
   }
 }
 
+//===============================
+//Styles
 const styles = StyleSheet.create({
   elementHeaderLoaderText: {
     alignSelf: 'center',

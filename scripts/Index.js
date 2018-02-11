@@ -1,34 +1,44 @@
 import React from 'react';
-import { Animated, Text, View, StyleSheet } from 'react-native';
+import { Animated, NetInfo, Text, View, StyleSheet } from 'react-native';
 import InitAppLoad from './components/InitAppLoad'
 
 export default class Index extends React.Component {
     state = {
         finishLoader: false,
         data: [],
-        login: null
+        login: null,
+        netWork: true,
     }
 
-    endLoader = () => {
-        this.setState({
-            finishLoader: true
-        })
-    }
-    
-    //NetWork
-    //NoNoetWork
-    //Login
-    //NoLogin
-    //Data
-    //NoData
-    
+    //Setters
+    setEndLoader = () => this.setState({ finishLoader: true })
+    setNetWork = type => this.setState({ netWork: type })
+    setDataFetch = resData => this.setState({ data: resData })
+
     //Simulated a Petition Fetch
     testPetitionFetch = () => {
         setTimeout(() => {
-            if(this.state.login) {
-                this.setState({ data: ["hola"] })
-            }   
-        }, 1000);
+
+            if (this.state.login) {
+                this.setDataFetch(["Hola", "Data"])
+            }
+
+        }, 2000);
+    }
+
+    //=======================
+    //Metodos REACT.Component
+    componentDidMount() {
+        handleFirstConnectivityChange = (isConnected) => {
+            NetInfo.getConnectionInfo().then((connectionInfo) => {
+                console.log('Initial, type: ' + connectionInfo.type + ', effectiveType: ' + connectionInfo.effectiveType);
+                this.setNetWork(isConnected)
+            });
+        }
+        NetInfo.isConnected.addEventListener(
+            'connectionChange',
+            handleFirstConnectivityChange
+        );
     }
 
     render() {
@@ -43,12 +53,15 @@ export default class Index extends React.Component {
         }
 
         return (<InitAppLoad
-            valueData={this.state.data}
+            netWork={this.state.netWork}
+            data={this.state.data}
             onFetching={this.testPetitionFetch}
-            onEndLoader={this.endLoader} />)
+            onEndLoader={this.setEndLoader} />)
     }
 }
 
+// =============================
+//Styles
 const styles = StyleSheet.create({
     containerHello: {
         flex: 1,

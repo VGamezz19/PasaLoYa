@@ -46,7 +46,7 @@ export default class SeaFlex extends React.Component {
       )
     ]).start(() => {
         
-      if (this.props.valueDate <1) return this.runAnimation()
+      if (this.props.data <1) return this.runAnimation()
       return this.finishAnimation()
     })
   }
