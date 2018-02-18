@@ -1,9 +1,13 @@
-import React from 'react';
-import { Animated, NetInfo, Text, View, StyleSheet } from 'react-native';
-import InitAppLoad from './components/InitLoader/InitLoader'
+import React, { Component } from 'react';
+import { NetInfo, StyleSheet } from 'react-native';
 import SocketIOClient from 'socket.io-client';
 
-export default class App extends React.Component {
+import InitAppLoad from './components/InitLoader/InitLoader'
+import HomeView from './components/HomeView/HomeView'
+
+
+
+export default class App extends Component {
     constructor() {
         super()
         //this.socket = SocketIOClient('http://localhost:3000')
@@ -28,7 +32,7 @@ export default class App extends React.Component {
 
     //=======================
     //Metodos REACT.
-    
+
     componentDidMount() {
 
         handleFirstConnectivityChange = (isConnected) => {
@@ -44,21 +48,20 @@ export default class App extends React.Component {
     }
 
     render() {
-        if (this.state.finishLoader) {
-            return (<View
-                style={[styles.containerHello]}>
-                <Text style={{ fontSize: 40 }}>
-                    Hello World...
-                    </Text>
-            </View>)
-        }
-
-        return (<InitAppLoad
-            netWork={this.state.netWork}
-            data={this.state.data}
-            onFetching={this.testPetitionFetch}
-            onEndLoader={this.setEndLoader} />)
+        return (
+            this.state.finishLoader ? (
+                <HomeView />
+            ) : (
+                    <InitAppLoad
+                        netWork={this.state.netWork}
+                        data={this.state.data}
+                        onFetching={this.testPetitionFetch}
+                        onEndLoader={this.setEndLoader} />
+                )
+        )
     }
+
+
 }
 // =============================
 //Styles

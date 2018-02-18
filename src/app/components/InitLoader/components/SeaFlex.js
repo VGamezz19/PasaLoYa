@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Animated, Text, View, StyleSheet } from 'react-native';
 
-export default class SeaFlex extends React.Component {
+export default class SeaFlex extends Component {
   state = {
     seaFlex1: new Animated.Value(1),
     seaFlex2: new Animated.Value(1),
@@ -86,7 +86,6 @@ export default class SeaFlex extends React.Component {
 
     return (
       <View style={[styles.containerLoader]}>
-
         <Animated.View style={{ justifyContent: 'flex-start', backgroundColor: 'powderblue', flex: seaFlex1, opacity: seaFlex1 }}>
           {this.props.children}
         </Animated.View>
