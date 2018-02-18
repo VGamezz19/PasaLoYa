@@ -6,7 +6,6 @@ import SocketIOClient from 'socket.io-client';
 export default class App extends React.Component {
     constructor(){
         super()
-
         //this.socket = SocketIOClient('http://localhost:3000')
     }
     state = {
@@ -23,7 +22,7 @@ export default class App extends React.Component {
     testPetitionFetch = () => {
         setTimeout(() => {
             console.warn("Execute SetTimeout")
-            
+
             this.setState({ data: ["Hola", "Data"]})
 
         }, 10000);
@@ -65,7 +64,6 @@ export default class App extends React.Component {
             onEndLoader={this.setEndLoader} />)
     }
 }
-
 // =============================
 //Styles
 const styles = StyleSheet.create({

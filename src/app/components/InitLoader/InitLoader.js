@@ -13,12 +13,9 @@ export default class InitLoader extends Component {
         <SeaFlex data={this.props.data} onEndLoader={this.props.onEndLoader}>
           <Text style={[styles.elementHeaderLoaderText]}>PasaLoYa!</Text>
         </SeaFlex>
-      
     )
   }
-
 }
-
 //===============================
 //Styles
 const styles = StyleSheet.create({

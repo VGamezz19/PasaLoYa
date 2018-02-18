@@ -10,9 +10,7 @@ export default class AlertNoNet extends Component {
             [{ text: 'Try', onPress: () =>  console.log("ok") }],
             { cancelable: false }
         )
-        
         return {showAlert}
-
     }
 
 }
