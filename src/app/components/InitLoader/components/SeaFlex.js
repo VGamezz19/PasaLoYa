@@ -46,7 +46,7 @@ export default class SeaFlex extends React.Component {
         }
       )
     ]).start(() => {
-      if (this.props.data.length < 1) return this.runAnimation()
+      if (!this.props.canFinish) return this.runAnimation()
 
       return this.finishAnimation()
     })
@@ -75,7 +75,7 @@ export default class SeaFlex extends React.Component {
           duration: 1000,
         }
       )
-    ]).start(() => this.props.onEndLoader())
+    ]).start(() => this.props.callBackFinish())
   }
 
   render() {

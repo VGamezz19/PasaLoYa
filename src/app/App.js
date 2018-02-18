@@ -17,6 +17,7 @@ export default class App extends React.Component {
 
     //Setters
     setEndLoader = () => this.setState({ finishLoader: true })
+    setNetWork = type => this.setState({ netWork: type })
 
     //Simulated a Petition Fetch
     testPetitionFetch = () => {
@@ -26,24 +27,20 @@ export default class App extends React.Component {
     }
 
     //=======================
-    //Metodos REACT.Component
+    //Metodos REACT.
+    
     componentDidMount() {
-        // NetInfo.getConnectionInfo().then((connectionInfo) => {
-        //     console.log('Initial, type: ' + connectionInfo.type + ', effectiveType: ' + connectionInfo.effectiveType);
-        //   });
 
         handleFirstConnectivityChange = (isConnected) => {
             NetInfo.getConnectionInfo().then((connectionInfo) => {
                 console.log('Initial, type: ' + connectionInfo.type + ', effectiveType: ' + connectionInfo.effectiveType);
-                this.setState({ netWork: type })
+                this.setNetWork(isConnected)
             });
         }
         NetInfo.isConnected.addEventListener(
             'connectionChange',
             handleFirstConnectivityChange
         );
-
-        this.testPetitionFetch()
     }
 
     render() {
