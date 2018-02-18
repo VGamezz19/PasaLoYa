@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { NetInfo, StyleSheet } from 'react-native';
 import SocketIOClient from 'socket.io-client';
+import checkNet from './config/NetWork'
 
 import InitAppLoad from './components/InitLoader/InitLoader'
 import HomeView from './components/HomeView/HomeView'
@@ -23,7 +24,7 @@ export default class App extends Component {
     setEndLoader = () => this.setState({ finishLoader: true })
     setNetWork = type => this.setState({ netWork: type })
 
-    //Simulated a Petition Fetch
+    //Simulated a Petition Fetch 
     testPetitionFetch = () => {
         setTimeout(() => {
             this.setState({ data: ["Hola", "Data"] })
@@ -34,17 +35,18 @@ export default class App extends Component {
     //Metodos REACT.
 
     componentDidMount() {
+        checkNet.call(this)
 
-        handleFirstConnectivityChange = (isConnected) => {
-            NetInfo.getConnectionInfo().then((connectionInfo) => {
-                console.log('Initial, type: ' + connectionInfo.type + ', effectiveType: ' + connectionInfo.effectiveType);
-                this.setNetWork(isConnected)
-            });
-        }
-        NetInfo.isConnected.addEventListener(
-            'connectionChange',
-            handleFirstConnectivityChange
-        );
+        // user.emit('message', (message) => {
+        //     // Save the message document in the `messages` collection.
+        //     //db.collection('messages').insert(message);
+
+        //     // The `broadcast` allows us to send to all users but the sender.
+        //     user.broadcast.emit('message', message);
+        //   });
+
+        console.warn("Hola que tla", )
+
     }
 
     render() {
