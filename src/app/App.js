@@ -8,9 +8,9 @@ import HomeView from './components/HomeView/HomeView'
 
 
 export default class App extends Component {
-    constructor() {
-        super()
-        //this.socket = SocketIOClient('http://localhost:3000')
+    constructor(props) {
+        super(props)
+        this.socket = SocketIOClient('http://localhost:5000')
     }
     state = {
         finishLoader: false,
