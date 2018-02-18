@@ -39,6 +39,7 @@ export default class App extends Component {
     }
 
     render() {
+        console.warn(this.socket )
         return (
             this.state.finishLoader ? (
                 <HomeView socket ={this.socket} />
