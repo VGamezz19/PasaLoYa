@@ -7,7 +7,6 @@ export default class InitLoader extends Component {
   onEndLoader = () => this.props.onEndLoader
 
   render() {
-    console.warn(this.props.netWork)
     return (
       (!this.props.netWork) ? <AlertNoNet/> : 
         <SeaFlex data={this.props.data} onEndLoader={this.props.onEndLoader}>

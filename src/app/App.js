@@ -4,7 +4,7 @@ import InitAppLoad from './components/InitLoader/InitLoader'
 import SocketIOClient from 'socket.io-client';
 
 export default class App extends React.Component {
-    constructor(){
+    constructor() {
         super()
         //this.socket = SocketIOClient('http://localhost:3000')
     }
@@ -21,19 +21,16 @@ export default class App extends React.Component {
     //Simulated a Petition Fetch
     testPetitionFetch = () => {
         setTimeout(() => {
-            console.warn("Execute SetTimeout")
-
-            this.setState({ data: ["Hola", "Data"]})
-
+            this.setState({ data: ["Hola", "Data"] })
         }, 10000);
     }
 
     //=======================
     //Metodos REACT.Component
     componentDidMount() {
-        this.testPetitionFetch()
-    }
-    componentDidMount() {
+        // NetInfo.getConnectionInfo().then((connectionInfo) => {
+        //     console.log('Initial, type: ' + connectionInfo.type + ', effectiveType: ' + connectionInfo.effectiveType);
+        //   });
 
         handleFirstConnectivityChange = (isConnected) => {
             NetInfo.getConnectionInfo().then((connectionInfo) => {
@@ -45,6 +42,8 @@ export default class App extends React.Component {
             'connectionChange',
             handleFirstConnectivityChange
         );
+
+        this.testPetitionFetch()
     }
 
     render() {

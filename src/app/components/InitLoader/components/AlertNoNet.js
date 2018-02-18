@@ -12,5 +12,4 @@ export default class AlertNoNet extends Component {
         )
         return {showAlert}
     }
-
 }
