@@ -1,4 +1,4 @@
 import { AppRegistry } from 'react-native';
-import Index from './scripts/Index'
+import Index from './src/app/App'
 
 AppRegistry.registerComponent('PasaLoYa', () => Index);

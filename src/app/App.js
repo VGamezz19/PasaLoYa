@@ -1,8 +1,14 @@
 import React from 'react';
 import { Animated, NetInfo, Text, View, StyleSheet } from 'react-native';
-import InitAppLoad from './components/InitAppLoad'
+import InitAppLoad from './components/InitLoader/InitLoader'
+import SocketIOClient from 'socket.io-client';
 
-export default class Index extends React.Component {
+export default class App extends React.Component {
+    constructor(){
+        super()
+
+        //this.socket = SocketIOClient('http://localhost:3000')
+    }
     state = {
         finishLoader: false,
         data: [],
@@ -12,22 +18,20 @@ export default class Index extends React.Component {
 
     //Setters
     setEndLoader = () => this.setState({ finishLoader: true })
-    setNetWork = type => this.setState({ netWork: type })
-    setDataFetch = resData => this.setState({ data: resData })
 
     //Simulated a Petition Fetch
     testPetitionFetch = () => {
         setTimeout(() => {
             console.warn("Execute SetTimeout")
-
-                this.setDataFetch(["Hola", "Data"])
+            
+            this.setState({ data: ["Hola", "Data"]})
 
         }, 10000);
     }
 
     //=======================
     //Metodos REACT.Component
-    componentWillMount() {
+    componentDidMount() {
         this.testPetitionFetch()
     }
     componentDidMount() {
@@ -35,7 +39,7 @@ export default class Index extends React.Component {
         handleFirstConnectivityChange = (isConnected) => {
             NetInfo.getConnectionInfo().then((connectionInfo) => {
                 console.log('Initial, type: ' + connectionInfo.type + ', effectiveType: ' + connectionInfo.effectiveType);
-                this.setNetWork(isConnected)
+                this.setState({ netWork: type })
             });
         }
         NetInfo.isConnected.addEventListener(
