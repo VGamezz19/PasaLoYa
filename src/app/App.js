@@ -36,23 +36,12 @@ export default class App extends Component {
 
     componentDidMount() {
         checkNet.call(this)
-
-        // user.emit('message', (message) => {
-        //     // Save the message document in the `messages` collection.
-        //     //db.collection('messages').insert(message);
-
-        //     // The `broadcast` allows us to send to all users but the sender.
-        //     user.broadcast.emit('message', message);
-        //   });
-
-        console.warn("Hola que tla", )
-
     }
 
     render() {
         return (
             this.state.finishLoader ? (
-                <HomeView />
+                <HomeView socket ={this.socket} />
             ) : (
                     <InitAppLoad
                         netWork={this.state.netWork}
