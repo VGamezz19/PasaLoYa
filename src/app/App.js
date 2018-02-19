@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 import { NetInfo, StyleSheet } from 'react-native';
-import SocketIOClient from 'socket.io-client';
-import checkNet from './config/NetWork'
 
+import checkNet from './config/NetWork'
 import InitAppLoad from './components/InitLoader/InitLoader'
 import HomeView from './components/HomeView/HomeView'
-
-
 
 export default class App extends Component {
     constructor(props) {
         super(props)
-        this.socket = SocketIOClient('http://localhost:5000')
     }
     state = {
         finishLoader: false,
@@ -31,9 +27,6 @@ export default class App extends Component {
         }, 10000);
     }
 
-    //=======================
-    //Metodos REACT.
-
     componentDidMount() {
         checkNet.call(this)
     }
@@ -42,7 +35,7 @@ export default class App extends Component {
         console.warn(this.socket )
         return (
             this.state.finishLoader ? (
-                <HomeView socket ={this.socket} />
+                <HomeView  />
             ) : (
                     <InitAppLoad
                         netWork={this.state.netWork}
