@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import AlertNoNet from './components/AlertNoNet'
+
 import SeaFlex from './components/SeaFlex'
 
 export default class InitLoader extends Component {
@@ -14,11 +14,12 @@ export default class InitLoader extends Component {
     const netWork = this.props.netWork
     const reciveData = this.props.data.length < 1 ? false : true
     return (
-      (!netWork) ? <AlertNoNet/> : 
-        (<SeaFlex canFinish={this.props.data} callBackFinish={this.props.onEndLoader}>
+       
+        <SeaFlex canFinish={this.props.data} callBackFinish={this.props.onEndLoader}>
           <Text style={[styles.elementHeaderLoaderText]}>PasaLoYa!</Text>
-        </SeaFlex>)
-    )
+        </SeaFlex>
+        )
+    
   }
 }
 //===============================

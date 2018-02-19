@@ -1,11 +1,19 @@
 import React from 'react';
-import { NetInfo } from 'react-native';
+import { NetInfo, Alert } from 'react-native';
 
 function checkNet () {
     handleFirstConnectivityChange = (isConnected) => {
         NetInfo.getConnectionInfo().then((connectionInfo) => {
             console.log('Initial, type: ' + connectionInfo.type + ', effectiveType: ' + connectionInfo.effectiveType);
-            this.setNetWork(isConnected)
+            
+            if(!isConnected){  
+                Alert.alert(
+                    'No net work detected',
+                    "You don't have NetWork. Please check it.",
+                    [{ text: 'Try', onPress: () =>  console.log("ok") }],
+                    { cancelable: false }
+                )
+            } 
         });
     }
     
@@ -16,3 +24,4 @@ function checkNet () {
 }
 
 export default checkNet
+
