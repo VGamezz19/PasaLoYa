@@ -1,0 +1,13 @@
+<script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB-tYBHoKTlBB4KKFNabN7rGVPWEWUWsV4",
+    authDomain: "pasaloy-352fc.firebaseapp.com",
+    databaseURL: "https://pasaloy-352fc.firebaseio.com",
+    projectId: "pasaloy-352fc",
+    storageBucket: "",
+    messagingSenderId: "141400614408"
+  };
+  firebase.initializeApp(config);
+</script>
