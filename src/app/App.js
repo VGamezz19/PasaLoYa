@@ -5,18 +5,6 @@ import checkNet from './config/NetWork'
 import InitAppLoad from './components/InitLoader/InitLoader'
 import HomeView from './components/HomeView/HomeView'
 
-import * as  firebase from 'firebase'
-
-const config = {
-    apiKey: "AIzaSyB-tYBHoKTlBB4KKFNabN7rGVPWEWUWsV4",
-    authDomain: "pasaloy-352fc.firebaseapp.com",
-    databaseURL: "https://pasaloy-352fc.firebaseio.com",
-    projectId: "pasaloy-352fc",
-    storageBucket: "",
-    messagingSenderId: "141400614408"
-  };
-  firebase.initializeApp(config);
-
 export default class App extends Component {
     constructor(props) {
         super(props)
