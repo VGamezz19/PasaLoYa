@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
+    "ios": "react-native run-ios",
+    "android": "react-native run-android",
     "test": "jest"
   },
   "dependencies": {
     "expo": "^25.0.0",
+    "firebase": "^4.10.0",
     "react": "16.2.0",
     "react-native": "0.53.0"
   },
