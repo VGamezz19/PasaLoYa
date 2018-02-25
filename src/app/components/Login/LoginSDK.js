@@ -10,7 +10,7 @@ const {
 export default class Login extends React.Component {
     render() {
         return (
-            <View>
+            <View style = {styles.containerHome}>
               <LoginButton
                 publishPermissions={["publish_actions"]}
                 onLoginFinished={
@@ -33,3 +33,13 @@ export default class Login extends React.Component {
           );
     }
 }
+//===============================
+//Styles
+const styles = StyleSheet.create({
+  containerHome: {
+    flex:1,
+    justifyContent: 'center',
+    alignItems: 'center',
+      flexDirection: 'column'
+  }
+})

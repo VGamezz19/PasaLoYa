@@ -4,6 +4,7 @@ import { NetInfo, StyleSheet } from 'react-native';
 import checkNet from './config/NetWork'
 import InitLoader from './components/InitLoader/InitLoader'
 import HomeView from './components/HomeView/HomeView'
+import Login from './components/Login/LoginSDK'
 
 
 export default class App extends Component {
@@ -36,7 +37,8 @@ export default class App extends Component {
         console.warn(this.socket)
         return (
             this.state.finishLoader ? (
-                <HomeView />
+                // <HomeView />
+                <Login />
             ) : (
                     <InitLoader
                         netWork={this.state.netWork}
