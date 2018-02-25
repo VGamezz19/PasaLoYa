@@ -26,6 +26,7 @@ class HandNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            color: '#FFFFFF',
             toolSelected: sketchViewConstants.toolType.pen.id
         };
     }
@@ -51,6 +52,7 @@ class HandNote extends Component {
             <View style={{flex: 1, flexDirection: 'column'}}>
                 <SketchView style={{flex: 1, backgroundColor: 'white'}} ref="sketchRef" 
                 selectedTool={this.state.toolSelected} 
+                toolColor={'#FFFA38'}
                 onSaveSketch={this.onSketchSave.bind(this)}
                 localSourceImagePath={this.props.localSourceImagePath}/>
 				
