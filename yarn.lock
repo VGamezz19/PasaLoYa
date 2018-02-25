@@ -3920,7 +3920,7 @@ react-devtools-core@3.0.0:
 
 "react-native-sketch-view@https://github.com/VGamezz19/react-native-sketch-view.git":
   version "1.0.1"
-  resolved "https://github.com/VGamezz19/react-native-sketch-view.git#2f053d5496b6fd7ca3d2b6ac2ec263886e1561d4"
+  resolved "https://github.com/VGamezz19/react-native-sketch-view.git#15a060eb82f0b57ed8f3021f00142c434486ae5a"
 
 react-native@0.53.0:
   version "0.53.0"
