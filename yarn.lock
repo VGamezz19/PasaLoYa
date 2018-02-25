@@ -3918,6 +3918,10 @@ react-devtools-core@3.0.0:
     shell-quote "^1.6.1"
     ws "^2.0.3"
 
+react-native-sketch-draw@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-sketch-draw/-/react-native-sketch-draw-2.0.0.tgz#a398957e6a166ec4321f19d6872de85f88b3ded3"
+
 "react-native-sketch-view@https://github.com/VGamezz19/react-native-sketch-view.git":
   version "1.0.1"
   resolved "https://github.com/VGamezz19/react-native-sketch-view.git#15a060eb82f0b57ed8f3021f00142c434486ae5a"

@@ -4,21 +4,21 @@ import {
     Text,
     TouchableHighlight
 } from 'react-native';
-import SketchView from 'react-native-sketch-view';
+import SketchDraw from 'react-native-sketch-draw';
 
-const sketchViewConstants = SketchView.constants;
+const SketchDrawConstants = SketchDraw.constants;
 
 const tools = {};
 
-tools[sketchViewConstants.toolType.pen.id] = {
-    id: sketchViewConstants.toolType.pen.id,
-    name: sketchViewConstants.toolType.pen.name,
-    nextId: sketchViewConstants.toolType.eraser.id
+tools[SketchDrawConstants.toolType.pen.id] = {
+    id: SketchDrawConstants.toolType.pen.id,
+    name: SketchDrawConstants.toolType.pen.name,
+    nextId: SketchDrawConstants.toolType.eraser.id
 };
-tools[sketchViewConstants.toolType.eraser.id] = {
-    id: sketchViewConstants.toolType.eraser.id,
-    name: sketchViewConstants.toolType.eraser.name,
-    nextId: sketchViewConstants.toolType.pen.id
+tools[SketchDrawConstants.toolType.eraser.id] = {
+    id: SketchDrawConstants.toolType.eraser.id,
+    name: SketchDrawConstants.toolType.eraser.name,
+    nextId: SketchDrawConstants.toolType.pen.id
 };
 
 export default class DrawBoard extends Component {
@@ -27,12 +27,12 @@ export default class DrawBoard extends Component {
         super(props);
         this.state = {
             color: '#FFFFFF',
-            toolSelected: sketchViewConstants.toolType.pen.id
+            toolSelected: SketchDrawConstants.toolType.pen.id
         };
     }
 
     isEraserToolSelected() {
-        return this.state.toolSelected === sketchViewConstants.toolType.eraser.id;
+        return this.state.toolSelected === SketchDrawConstants.toolType.eraser.id;
     }
 
     toolChangeClick() {
@@ -50,7 +50,7 @@ export default class DrawBoard extends Component {
     render() {
         return (
             <View style={{flex: 1, flexDirection: 'column'}}>
-                <SketchView style={{flex: 1, backgroundColor: 'white'}} ref="sketchRef" 
+                <SketchDraw style={{flex: 1, backgroundColor: 'white'}} ref="sketchRef" 
                 selectedTool={this.state.toolSelected} 
                 toolColor={'#FFFA38'}
                 onSaveSketch={this.onSketchSave.bind(this)}
