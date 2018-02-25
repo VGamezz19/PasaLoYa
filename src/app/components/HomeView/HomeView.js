@@ -13,7 +13,7 @@ export default class HomeView extends Component {
             <View style={[styles.containerHome]}>
                 <View style={[styles.contentHead]}>
                     <Text style={{ fontSize: 40 }}>
-                        Hello Penes SU
+                        DrawBoard!! Yeaaa
                     </Text>
                 </View>
                 <View style={[styles.contentBoard]}> 
