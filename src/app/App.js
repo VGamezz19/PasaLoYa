@@ -36,8 +36,8 @@ export default class App extends Component {
     render() {
         return (
             this.state.finishLoader ? (
-                // <HomeView />
-                <Login />
+                 <HomeView />
+                //<Login />
             ) : (
                     <InitLoader
                         netWork={this.state.netWork}
