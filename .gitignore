@@ -298,5 +298,6 @@ FBSDK*.framework
 FBSDKCoreKit.framework
 FBSDKLoginKit.framework
 FBSDKShareKit.framework
+Bolts.framework
 
 # End of https://www.gitignore.io/api/osx,buck,node,xcode,android,androidstudio,visualstudiocode
