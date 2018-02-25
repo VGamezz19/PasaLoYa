@@ -4,7 +4,7 @@ import { NetInfo, StyleSheet } from 'react-native';
 import checkNet from './config/NetWork'
 import InitAppLoad from './components/InitLoader/InitLoader'
 import HomeView from './components/HomeView/HomeView'
-import MyPaint from './components/HomeView/Draw'
+import HandNote from './components/HomeView/Draw'
 
 export default class App extends Component {
     constructor(props) {
@@ -36,7 +36,7 @@ export default class App extends Component {
         console.warn(this.socket )
         return (
             this.state.finishLoader ? (
-                <MyPaint  />
+                <HandNote  />
             ) : (
                     <InitAppLoad
                         netWork={this.state.netWork}
