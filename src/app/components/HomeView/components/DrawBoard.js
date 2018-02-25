@@ -21,7 +21,7 @@ tools[sketchViewConstants.toolType.eraser.id] = {
     nextId: sketchViewConstants.toolType.pen.id
 };
 
-class HandNote extends Component {
+export default class DrawBoard extends Component {
 
     constructor(props) {
         super(props);
@@ -71,5 +71,3 @@ class HandNote extends Component {
         );
     }
 }
-
-export default HandNote;

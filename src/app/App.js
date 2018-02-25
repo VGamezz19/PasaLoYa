@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { NetInfo, StyleSheet } from 'react-native';
 
 import checkNet from './config/NetWork'
-import InitAppLoad from './components/InitLoader/InitLoader'
+import InitLoader from './components/InitLoader/InitLoader'
 import HomeView from './components/HomeView/HomeView'
-import HandNote from './components/HomeView/Draw'
+
 
 export default class App extends Component {
     constructor(props) {
@@ -33,12 +33,12 @@ export default class App extends Component {
     }
 
     render() {
-        console.warn(this.socket )
+        console.warn(this.socket)
         return (
             this.state.finishLoader ? (
-                <HandNote  />
+                <HomeView />
             ) : (
-                    <InitAppLoad
+                    <InitLoader
                         netWork={this.state.netWork}
                         data={this.state.data}
                         onFetching={this.testPetitionFetch}
