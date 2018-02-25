@@ -1,7 +1,7 @@
 import React from 'react';
 import { Animated, NetInfo, Text, View, StyleSheet } from 'react-native';
 import InitAppLoad from './components/InitAppLoad'
-
+import Login from './components/Login/LoginSDK'
 export default class Index extends React.Component {
     state = {
         finishLoader: false,
@@ -45,12 +45,9 @@ export default class Index extends React.Component {
     }
 
     render() {
-        if (this.state.finishLoader) {
-            return (<View
-                style={[styles.containerHello]}>
-                <Text style={{ fontSize: 40 }}>
-                    Hello World...
-                    </Text>
+        if (true) {
+            return (<View>
+                <Login/>
             </View>)
         }
 
