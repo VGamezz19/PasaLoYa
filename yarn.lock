@@ -4079,6 +4079,16 @@ react-native-safe-module@^1.1.0:
   dependencies:
     dedent "^0.6.0"
 
+react-native-sketch-view@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-native-sketch-view/-/react-native-sketch-view-1.0.1.tgz#b8837f6f86dd08d60c166f934fbc5c2a60ecafea"
+
+react-native-sketch@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-sketch/-/react-native-sketch-1.1.0.tgz#2e75a388454a7197ff02c7251c73749e18ad8116"
+  dependencies:
+    prop-types "^15.5.10"
+
 "react-native-svg@https://github.com/expo/react-native-svg/archive/5.5.1-exp.1.tar.gz":
   version "5.5.1"
   resolved "https://github.com/expo/react-native-svg/archive/5.5.1-exp.1.tar.gz#0c6e373dbe63cfcbdd465f5b2965ebe011c8962f"
